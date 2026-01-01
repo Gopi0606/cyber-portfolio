@@ -3,7 +3,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GOPI | Cybersecurity Analyst</title>
+    <title>GOPINATH MARIMUTHU | Cybersecurity Professional</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome -->
@@ -32,16 +36,11 @@
                     },
                     animation: {
                         'blink': 'blink 1s step-end infinite',
-                        'scanline': 'scanline 8s linear infinite',
                     },
                     keyframes: {
                         blink: {
                             '0%, 100%': { opacity: '1' },
                             '50%': { opacity: '0' },
-                        },
-                        scanline: {
-                            '0%': { transform: 'translateY(-100%)' },
-                            '100%': { transform: 'translateY(100%)' }
                         }
                     }
                 }
@@ -54,49 +53,79 @@
             background-color: #050505;
             color: #e5e7eb;
         }
-        
-        /* Custom Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: #111;
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #333;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: #00ff41;
-        }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #111; }
+        ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #00ff41; }
 
-        /* Glitch Effect Class */
-        .glitch-text:hover {
-            text-shadow: 2px 0 #ef4444, -2px 0 #0ea5e9;
-        }
-
-        /* Neon Glow Utilities */
-        .neon-border {
-            box-shadow: 0 0 5px rgba(0, 255, 65, 0.2), inset 0 0 5px rgba(0, 255, 65, 0.1);
-        }
-        .neon-text {
-            text-shadow: 0 0 10px rgba(0, 255, 65, 0.5);
-        }
-
-        /* CRT Screen Effect overlay */
+        .glitch-text:hover { text-shadow: 2px 0 #ef4444, -2px 0 #0ea5e9; }
         .crt::before {
-            content: " ";
-            display: block;
-            position: absolute;
-            top: 0;
-            left: 0;
-            bottom: 0;
-            right: 0;
+            content: " "; display: block; position: absolute; top: 0; left: 0; bottom: 0; right: 0;
             background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
-            z-index: 2;
-            background-size: 100% 2px, 3px 100%;
-            pointer-events: none;
+            z-index: 2; background-size: 100% 2px, 3px 100%; pointer-events: none;
         }
+        /* Circular Profile Styles */
+               .profile-container {
+                position: relative;
+                width: 180px;
+                height: 180px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+               }
+
+               .profile-circle {
+               width: 160px;
+               height: 160px;
+               border-radius: 50%;
+               overflow: hidden;
+               border: 2px solid #00ff41;
+               position: relative;
+               z-index: 10;
+               background: #0a0a0a;
+               }
+
+               .profile-img {
+               width: 100%;
+               height: 100%;
+               object-fit: cover;
+               }
+
+                /* The rotating radar ring */
+               .radar-ring {
+                position: absolute;
+                width: 180px;
+                height: 180px;
+                border-radius: 50%;
+                border: 1px solid rgba(0, 255, 65, 0.2);
+                border-top: 3px solid #00ff41; /* The "visible" rotating part */
+                animation: radar-rotate 4s linear infinite;
+                }
+
+                @keyframes radar-rotate {
+                from { transform: rotate(0deg); }
+                to { transform: rotate(360deg); }
+                }
+
+               .crt::before {
+               content: " "; display: block; position: absolute; top: 0; left: 0; bottom: 0; right: 0;
+               background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+               z-index: 2; background-size: 100% 2px, 3px 100%; pointer-events: none;
+               }
+               /* Hero Background - Note: Local C:/ paths often fail in browsers for security. 
+               Try moving the image to the same folder as this HTML and using url('1762271701251_1.jpg') */
+            .hero-bg-image {
+            position: relative;
+            background-color: #050505;
+            background-image: linear-gradient(to bottom, rgba(5, 5, 5, 0.7), rgba(5, 5, 5, 0.9)), 
+                              url('file:///C:\Users\GopinathM\Downloads\Image (1).jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+             
+
+
     </style>
 </head>
 <body class="font-sans antialiased overflow-x-hidden relative">
@@ -106,90 +135,81 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <div class="flex-shrink-0">
-                    <span class="font-mono text-xl font-bold text-cyber-green tracking-tighter">
-                        <i class="fas fa-shield-alt mr-2"></i>GOPI_
+                    <span class="font-mono text-xl font-bold text-cyber-green tracking-tighter uppercase">
+                        GOPINATH_M
                     </span>
                 </div>
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-8">
-                        <a href="#home" class="text-gray-300 hover:text-cyber-green px-3 py-2 rounded-md text-sm font-medium transition-colors">./Home</a>
-                        <a href="#about" class="text-gray-300 hover:text-cyber-green px-3 py-2 rounded-md text-sm font-medium transition-colors">./About</a>
-                        <a href="#projects" class="text-gray-300 hover:text-cyber-green px-3 py-2 rounded-md text-sm font-medium transition-colors">./Projects</a>
-                        <a href="#skills" class="text-gray-300 hover:text-cyber-green px-3 py-2 rounded-md text-sm font-medium transition-colors">./Skills</a>
-                        <a href="#contact" class="bg-cyber-green/10 text-cyber-green border border-cyber-green/50 hover:bg-cyber-green hover:text-black px-4 py-2 rounded-md text-sm font-bold transition-all duration-300">Contact_Me</a>
+                        <a href="#home" class="text-gray-300 hover:text-cyber-green px-3 py-2 text-sm font-medium transition-colors">./Home</a>
+                        <a href="#about" class="text-gray-300 hover:text-cyber-green px-3 py-2 text-sm font-medium transition-colors">./Profile</a>
+                        <a href="#experience" class="text-gray-300 hover:text-cyber-green px-3 py-2 text-sm font-medium transition-colors">./Experience</a>
+                        <a href="#skills" class="text-gray-300 hover:text-cyber-green px-3 py-2 text-sm font-medium transition-colors">./Arsenal</a>
+                        <a href="mailto:gopi661999@gmail.com" class="bg-cyber-green/10 text-cyber-green border border-cyber-green/50 hover:bg-cyber-green hover:text-black px-4 py-2 rounded-md text-sm font-bold transition-all duration-300">Ping_Contact</a>
                     </div>
                 </div>
-                <!-- Mobile menu button -->
-                <div class="-mr-2 flex md:hidden">
-                    <button type="button" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-white hover:bg-gray-700 focus:outline-none">
-                        <i class="fas fa-bars"></i>
-                    </button>
-                </div>
-            </div>
-        </div>
-        <!-- Mobile Menu -->
-        <div class="hidden md:hidden bg-cyber-dark border-b border-gray-800" id="mobile-menu">
-            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
-                <a href="#home" class="text-gray-300 hover:text-cyber-green block px-3 py-2 rounded-md text-base font-medium">./Home</a>
-                <a href="#about" class="text-gray-300 hover:text-cyber-green block px-3 py-2 rounded-md text-base font-medium">./About</a>
-                <a href="#projects" class="text-gray-300 hover:text-cyber-green block px-3 py-2 rounded-md text-base font-medium">./Projects</a>
-                <a href="#skills" class="text-gray-300 hover:text-cyber-green block px-3 py-2 rounded-md text-base font-medium">./Skills</a>
             </div>
         </div>
     </nav>
 
-    <!-- Hero Section with Terminal -->
+    <!-- Hero Section -->
     <section id="home" class="min-h-screen flex items-center justify-center pt-16 relative overflow-hidden">
-        <!-- Background Grid -->
         <div class="absolute inset-0 bg-[linear-gradient(to_right,#1f2937_1px,transparent_1px),linear-gradient(to_bottom,#1f2937_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-20"></div>
 
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
-            
-            <!-- Text Content -->
             <div class="order-2 lg:order-1">
                 <div class="inline-flex items-center px-3 py-1 rounded-full border border-cyber-green/30 bg-cyber-green/5 text-cyber-green text-xs font-mono mb-6">
                     <span class="w-2 h-2 rounded-full bg-cyber-green animate-pulse mr-2"></span>
-                    Available for Contracts & Audits
+                    Currently at Quadrasystems.net
                 </div>
-                <h1 class="text-5xl md:text-7xl font-bold mb-6 tracking-tight">
-                    Securing the <br>
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyber-green to-cyber-blue glitch-text cursor-default">Digital Frontier</span>
-                </h1>
-                <p class="text-gray-400 text-lg mb-8 max-w-lg leading-relaxed">
-                    I am a Cybersecurity Specialist focused on Penetration Testing, Cloud Security, and Threat Intelligence. I break things so you can fix them before the bad guys do.
+                <!-- Circular Profile Component -->
+                <div class="flex flex-col md:flex-row items-center gap-8 mb-10">
+                  <div class="profile-container">
+    <!-- Spinning radar ring -->
+    <div class="radar-ring animate-spin-slow"></div>
+    
+    <!-- Circular image wrapper -->
+    <div class="profile-circle shadow-[0_0_30px_rgba(0,255,65,0.2)]">
+        <img 
+            src="C:\Users\GopinathM\Documents\1762271701251_1.jpg" 
+            alt="Gopinath Marimuthu" 
+            class="profile-img"
+            onerror="this.src='https://via.placeholder.com/400x400/0a0a0a/00ff41?text=GM'"
+        >
+    </div>
+</div>
+                    <div class="text-center md:text-left">
+                        <h1 class="text-5xl md:text-7xl font-black tracking-tighter leading-none">
+                            GOPINATH<br>
+                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyber-green via-cyber-blue to-cyber-green glitch-text uppercase">MARIMUTHU</span>
+                        </h1>
+                        <p class="font-mono text-gray-500 text-xs mt-4 tracking-[0.2em] uppercase">Cyber Security Engineer </p>
+                    </div>
+                </div>
+                <p class="text-gray-400 text-lg mb-8 max-w-lg leading-relaxed font-mono">
+                    Cybersecurity professional specializing in network security, End User Security and vulnerability assessment. Protecting digital assets through advanced defensive methodologies.
                 </p>
                 <div class="flex flex-wrap gap-4">
-                    <a href="#projects" class="bg-cyber-green text-black font-bold py-3 px-8 rounded hover:shadow-[0_0_20px_rgba(0,255,65,0.4)] transition-all transform hover:-translate-y-1">
-                        View Operations
+                    <a href="#experience" class="bg-cyber-green text-black font-bold py-3 px-8 rounded hover:shadow-[0_0_20px_rgba(0,255,65,0.4)] transition-all">
+                        View Logs
                     </a>
-                    <a href="https://github.com" target="_blank" class="border border-gray-600 hover:border-white text-gray-300 hover:text-white py-3 px-8 rounded transition-all flex items-center gap-2">
-                        <i class="fab fa-github"></i> GitHub
+                    <a href="https://www.linkedin.com/in/gopinath-marimuthu/" target="_blank" class="border border-gray-600 hover:border-white text-gray-300 hover:text-white py-3 px-8 rounded transition-all flex items-center gap-2">
+                        <i class="fab fa-linkedin"></i> LinkedIn
                     </a>
                 </div>
             </div>
 
-            <!-- Terminal Simulation -->
             <div class="order-1 lg:order-2">
                 <div class="w-full max-w-lg mx-auto bg-[#0c0c0c] rounded-lg border border-gray-700 shadow-2xl overflow-hidden crt relative">
-                    <!-- Terminal Header -->
                     <div class="bg-gray-800 px-4 py-2 flex items-center justify-between border-b border-gray-700">
-                        <div class="flex space-x-2">
-                            <div class="w-3 h-3 rounded-full bg-red-500"></div>
-                            <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
-                            <div class="w-3 h-3 rounded-full bg-green-500"></div>
-                        </div>
-                        <div class="text-xs text-gray-400 font-mono">root@kali:~/portfolio</div>
-                        <div class="w-4"></div>
+                        <div class="flex space-x-2"><div class="w-3 h-3 rounded-full bg-red-500"></div><div class="w-3 h-3 rounded-full bg-yellow-500"></div><div class="w-3 h-3 rounded-full bg-green-500"></div></div>
+                        <div class="text-xs text-gray-400 font-mono italic">visitor@gopinath-m:~$</div>
                     </div>
-                    <!-- Terminal Body -->
                     <div class="p-6 font-mono text-sm h-80 overflow-y-auto" id="terminal-body">
-                        <div id="terminal-content">
-                            <!-- JS will inject content here -->
-                        </div>
+                        <div id="terminal-content"></div>
                         <div class="flex items-center mt-2">
                             <span class="text-cyber-green mr-2">➜</span>
-                            <span class="text-cyber-blue mr-2">~</span>
-                            <span class="text-gray-300" id="typewriter-cursor"></span><span class="animate-blink bg-gray-400 w-2 h-5 inline-block align-middle ml-1"></span>
+                            <span class="animate-blink bg-gray-400 w-2 h-5 inline-block align-middle"></span>
                         </div>
                     </div>
                 </div>
@@ -197,333 +217,212 @@
         </div>
     </section>
 
-    <!-- Stats / CTF Section -->
-    <section class="bg-cyber-dark border-y border-gray-800 py-12">
+    <!-- Profile Summary -->
+    <section id="about" class="py-24 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
-                <div class="p-4 hover:bg-gray-900 rounded-lg transition-colors group">
-                    <div class="text-3xl font-bold text-cyber-green mb-1 group-hover:neon-text">Top 1%</div>
-                    <div class="text-sm text-gray-400 font-mono uppercase tracking-widest">TryHackMe</div>
-                </div>
-                <div class="p-4 hover:bg-gray-900 rounded-lg transition-colors group">
-                    <div class="text-3xl font-bold text-cyber-blue mb-1 group-hover:text-shadow-blue">45+</div>
-                    <div class="text-sm text-gray-400 font-mono uppercase tracking-widest">Machines Pwned</div>
-                </div>
-                <div class="p-4 hover:bg-gray-900 rounded-lg transition-colors group">
-                    <div class="text-3xl font-bold text-purple-500 mb-1">5</div>
-                    <div class="text-sm text-gray-400 font-mono uppercase tracking-widest">CVEs Found</div>
-                </div>
-                <div class="p-4 hover:bg-gray-900 rounded-lg transition-colors group">
-                    <div class="text-3xl font-bold text-white mb-1">4.5y</div>
-                    <div class="text-sm text-gray-400 font-mono uppercase tracking-widest">Experience</div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About & Certs -->
-    <section id="about" class="py-20 relative">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-16">
-                <!-- About Text -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
                 <div>
-                    <h2 class="text-3xl font-bold mb-6 flex items-center">
-                        <span class="text-cyber-green mr-3">01.</span> About Me
+                    <h2 class="text-3xl font-bold mb-8 flex items-center">
+                        <span class="text-cyber-green mr-3">01.</span> Professional_Summary
                     </h2>
                     <p class="text-gray-400 leading-relaxed mb-6">
-                        Hello! My name is <span class="text-cyber-green">Gopi</span> and I enjoy securing systems against modern threats. My interest in hacking started back in 2018 when I accidentally discovered an SQL injection vulnerability in a college project—turns out breaking things taught me more about building them than any textbook.
+                        Cybersecurity graduate with hands-on experience in network security, End User Security and vulnerability assessment. Skilled in identifying and mitigating security risks with strong attention to detail.
                     </p>
                     <p class="text-gray-400 leading-relaxed mb-6">
-                        Fast-forward to today, I’ve had the privilege of working at an <span class="text-cyber-green">MSSP</span>, a <span class="text-cyber-green">FinTech start-up</span>, and running my own freelance audits. My main focus these days is automating security workflows and cloud hardening.
+                        Currently leveraging my expertise at <span class="text-cyber-green">Quadrasystems.net</span> to strengthen organizational security posture through proactive monitoring and defensive engineering.
                     </p>
-                    
-                    <div class="mt-8">
-                        <h3 class="text-xl font-bold text-white mb-4">Education</h3>
+                     <div class="mt-8">
+                        <h3 class="text-xl font-bold text-white mb-4">Core Philosophy</h3>
                         <div class="border-l-2 border-cyber-green/30 pl-4">
-                            <h4 class="text-white font-semibold">B.S. Computer Science</h4>
-                            <p class="text-gray-500 text-sm">University of Technology, 2016-2020</p>
+                            <p class="text-gray-500 italic">"Security is not a product, but a continuous process of visibility, analysis, and rapid response."</p>
                         </div>
+                    </div>
+                    
+                     <div class="mt-8 space-y-4">
+                        <div class="bg-cyber-dark border border-gray-800 p-4 rounded flex items-center gap-4">
+                            <i class="fas fa-graduation-cap text-cyber-green"></i>
+                            <div>
+                                <h4 class="text-white font-bold text-sm">B.E. Civil Engineering</h4>
+                                <p class="text-xs text-gray-500">Mahendra Institute of Engineering & Tech (7.8 CGPA)</p>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
 
-                <!-- Certifications -->
                 <div>
-                    <h2 class="text-3xl font-bold mb-8 flex items-center md:justify-end">
-                        Certifications
+                    <h2 class="text-3xl font-bold mb-8 flex items-center md:justify-Center">
+                    Certifications
                     </h2>
                     <div class="space-y-4">
-                        <!-- Cert 1 -->
                         <div class="bg-gray-800/50 border border-gray-700 p-4 rounded-lg flex items-center hover:border-cyber-green transition-colors group cursor-default">
-                            <div class="w-12 h-12 bg-gray-900 rounded flex items-center justify-center text-2xl text-red-500 mr-4 group-hover:scale-110 transition-transform">
-                                <i class="fas fa-dragon"></i>
+                            <div class="w-12 h-12 bg-gray-900 rounded flex items-center justify-center text-2xl text-cyber-green mr-4 group-hover:scale-110 transition-transform">
+                                <i class="fas fa-search"></i>
                             </div>
                             <div>
-                                <h4 class="font-bold text-white">OSCP</h4>
-                                <p class="text-xs text-gray-400">Offensive Security Certified Professional</p>
-                            </div>
-                            <div class="ml-auto text-cyber-green opacity-0 group-hover:opacity-100 transition-opacity">
-                                <i class="fas fa-check-circle"></i>
+                                <h4 class="font-bold text-white">Cyber Security</h4>
+                                <p class="text-xs text-gray-400">Imarticus learning </p>
                             </div>
                         </div>
 
-                        <!-- Cert 2 -->
                         <div class="bg-gray-800/50 border border-gray-700 p-4 rounded-lg flex items-center hover:border-cyber-blue transition-colors group cursor-default">
                             <div class="w-12 h-12 bg-gray-900 rounded flex items-center justify-center text-2xl text-blue-500 mr-4 group-hover:scale-110 transition-transform">
-                                <i class="fas fa-shield-virus"></i>
+                                <i class="fas fa-shield-alt"></i>
                             </div>
                             <div>
-                                <h4 class="font-bold text-white">CISSP</h4>
-                                <p class="text-xs text-gray-400">Certified Information Systems Security Professional</p>
-                            </div>
-                            <div class="ml-auto text-cyber-blue opacity-0 group-hover:opacity-100 transition-opacity">
-                                <i class="fas fa-check-circle"></i>
+                                <h4 class="font-bold text-white">Ethical Hacking (C|EH)V13</h4>
+                                <p class="text-xs text-gray-400">EC-Council</p>
                             </div>
                         </div>
 
-                        <!-- Cert 3 -->
                         <div class="bg-gray-800/50 border border-gray-700 p-4 rounded-lg flex items-center hover:border-purple-500 transition-colors group cursor-default">
                             <div class="w-12 h-12 bg-gray-900 rounded flex items-center justify-center text-2xl text-purple-500 mr-4 group-hover:scale-110 transition-transform">
                                 <i class="fas fa-cloud"></i>
                             </div>
                             <div>
-                                <h4 class="font-bold text-white">AWS Security Specialty</h4>
-                                <p class="text-xs text-gray-400">Amazon Web Services</p>
+                                <h4 class="font-bold text-white">Azure Security</h4>
+                                <p class="text-xs text-gray-400">Cloud Infrastructure Protection</p>
                             </div>
-                            <div class="ml-auto text-purple-500 opacity-0 group-hover:opacity-100 transition-opacity">
-                                <i class="fas fa-check-circle"></i>
-                            </div>
-                        </div>
+                        </div>  
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Technical Skills -->
-    <section id="skills" class="py-20 bg-cyber-dark border-t border-gray-800">
+    <!-- Experience -->
+    <section id="experience" class="py-24 bg-cyber-dark border-y border-gray-800">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold mb-16 flex items-center">
+                <span class="text-cyber-green mr-3">02.</span> Professional_History
+            </h2>
+
+            <div class="space-y-12">
+                <!-- Quadrasystems -->
+                <div class="relative pl-8 border-l-2 border-cyber-green">
+                    <div class="absolute -left-[11px] top-0 w-5 h-5 rounded-full bg-cyber-green border-4 border-black"></div>
+                    <div class="mb-2 flex flex-wrap justify-between items-center">
+                        <h3 class="text-xl font-bold text-white">Cyber Security Associate</h3>
+                        <span class="text-cyber-green font-mono text-xs">OCT 2025 - PRESENT</span>
+                    </div>
+                    <p class="text-cyber-blue font-bold mb-4 text-sm">Quadrasystems.net</p>
+                    <p class="text-gray-400 text-sm leading-relaxed italic mb-4">
+                        Contributing to enterprise-level security monitoring and vulnerability management systems. (Last 3 months)
+                    </p>
+                    <ul class="text-gray-500 text-sm space-y-2">
+                        <li>• Threat analysis and real-time network monitoring.</li>
+                        <li>• Supporting incident response and remediation efforts.</li>
+                    </ul>
+                </div>
+
+                <!-- Reliance -->
+                <div class="relative pl-8 border-l-2 border-gray-800">
+                    <div class="absolute -left-[11px] top-0 w-5 h-5 rounded-full bg-gray-800 border-4 border-black"></div>
+                    <div class="mb-2 flex flex-wrap justify-between items-center">
+                        <h3 class="text-xl font-bold text-white">CRM </h3>
+                        <span class="text-gray-500 font-mono text-xs">MAY 2022 - JAN 2025</span>
+                    </div>
+                    <p class="text-gray-500 font-bold mb-4 text-sm uppercase">Reliance Digital</p>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Managed customer relationship processes using SAP CRM. Proficient in data handling, service requests, and workflow automation. Collaborated cross-functionally to improve system efficiency.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Technical Projects & Skills -->
+    <section id="skills" class="py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-3xl font-bold mb-12 flex items-center justify-center">
-                <span class="text-cyber-green mr-3">02.</span> Technical Arsenal
+                <span class="text-cyber-green mr-3">03.</span> Technical_Arsenal
             </h2>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- Offensive -->
-                <div class="bg-gray-900/50 p-6 rounded-xl border border-gray-800 hover:border-red-500/50 transition-all hover:-translate-y-2">
-                    <div class="text-red-500 text-4xl mb-4"><i class="fas fa-bug"></i></div>
-                    <h3 class="text-xl font-bold text-white mb-4">Offensive Security</h3>
+                <div class="bg-gray-900/50 p-6 rounded-xl border border-gray-800 hover:border-blue-500 transition-all hover:-translate-y-2">
+                    <div class="text-blue-500 text-4xl mb-4"><i class="fas fa-user-shield"></i></div>
+                    <h3 class="text-xl font-bold text-white mb-4">Network & Endpoint </h3>
                     <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-red-500/10 text-red-400 rounded-full text-xs font-mono border border-red-500/20">Metasploit</span>
-                        <span class="px-3 py-1 bg-red-500/10 text-red-400 rounded-full text-xs font-mono border border-red-500/20">Burp Suite</span>
-                        <span class="px-3 py-1 bg-red-500/10 text-red-400 rounded-full text-xs font-mono border border-red-500/20">Nmap</span>
-                        <span class="px-3 py-1 bg-red-500/10 text-red-400 rounded-full text-xs font-mono border border-red-500/20">Cobalt Strike</span>
-                        <span class="px-3 py-1 bg-red-500/10 text-red-400 rounded-full text-xs font-mono border border-red-500/20">SQLMap</span>
+                        <span class="px-3 py-1 bg-blue-500/10 text-blue-400 rounded-full text-xs font-mono border border-blue-500/20">Zscaler</span>
+                        <span class="px-3 py-1 bg-blue-500/10 text-blue-400 rounded-full text-xs font-mono border border-blue-500/20">CrowdStrike</span>
+                        <span class="px-3 py-1 bg-blue-500/10 text-blue-400 rounded-full text-xs font-mono border border-blue-500/20">Sophos</span>
+                        <span class="px-3 py-1 bg-blue-500/10 text-blue-400 rounded-full text-xs font-mono border border-blue-500/20">Microsoft Defender</span>
                     </div>
                 </div>
 
-                <!-- Defensive -->
-                <div class="bg-gray-900/50 p-6 rounded-xl border border-gray-800 hover:border-blue-500/50 transition-all hover:-translate-y-2">
-                    <div class="text-blue-500 text-4xl mb-4"><i class="fas fa-shield-alt"></i></div>
-                    <h3 class="text-xl font-bold text-white mb-4">Defensive (Blue Team)</h3>
+                <div class="bg-gray-900/50 p-6 rounded-xl border border-gray-800 hover:border-cyber-green transition-all hover:-translate-y-2">
+                    <div class="text-cyber-green text-4xl mb-4"><i class="fas fa-search"></i></div>
+                    <h3 class="text-xl font-bold text-white mb-4">SIEM & Logging</h3>
                     <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-blue-500/10 text-blue-400 rounded-full text-xs font-mono border border-blue-500/20">Splunk</span>
-                        <span class="px-3 py-1 bg-blue-500/10 text-blue-400 rounded-full text-xs font-mono border border-blue-500/20">Wireshark</span>
-                        <span class="px-3 py-1 bg-blue-500/10 text-blue-400 rounded-full text-xs font-mono border border-blue-500/20">Snort</span>
-                        <span class="px-3 py-1 bg-blue-500/10 text-blue-400 rounded-full text-xs font-mono border border-blue-500/20">Elastic SIEM</span>
-                        <span class="px-3 py-1 bg-blue-500/10 text-blue-400 rounded-full text-xs font-mono border border-blue-500/20">Osquery</span>
+                        <span class="px-3 py-1 bg-cyber-green/10 text-cyber-green rounded-full text-xs font-mono border border-cyber-green/20">Splunk ES</span>
+                        <span class="px-3 py-1 bg-cyber-green/10 text-cyber-green rounded-full text-xs font-mono border border-cyber-green/20">Logstash</span>
+                        <span class="px-3 py-1 bg-cyber-green/10 text-cyber-green rounded-full text-xs font-mono border border-cyber-green/20">ELK Stack</span>
+                        <span class="px-3 py-1 bg-cyber-green/10 text-cyber-green rounded-full text-xs font-mono border border-cyber-green/20">Azure Sentinel</span>
                     </div>
                 </div>
 
-                <!-- Scripting & Dev -->
-                <div class="bg-gray-900/50 p-6 rounded-xl border border-gray-800 hover:border-cyber-green/50 transition-all hover:-translate-y-2">
-                    <div class="text-cyber-green text-4xl mb-4"><i class="fas fa-code"></i></div>
-                    <h3 class="text-xl font-bold text-white mb-4">Scripting & Cloud</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 bg-cyber-green/10 text-cyber-green rounded-full text-xs font-mono border border-cyber-green/20">Python</span>
-                        <span class="px-3 py-1 bg-cyber-green/10 text-cyber-green rounded-full text-xs font-mono border border-cyber-green/20">Bash</span>
-                        <span class="px-3 py-1 bg-cyber-green/10 text-cyber-green rounded-full text-xs font-mono border border-cyber-green/20">Go</span>
-                        <span class="px-3 py-1 bg-cyber-green/10 text-cyber-green rounded-full text-xs font-mono border border-cyber-green/20">Docker</span>
-                        <span class="px-3 py-1 bg-cyber-green/10 text-cyber-green rounded-full text-xs font-mono border border-cyber-green/20">AWS IAM</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects -->
-    <section id="projects" class="py-20">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <h2 class="text-3xl font-bold mb-12 flex items-center">
-                <span class="text-cyber-green mr-3">03.</span> Deployed Operations
-            </h2>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 
-                <!-- Project 1 -->
-                <div class="bg-[#111] rounded-lg overflow-hidden border border-gray-800 hover:border-cyber-green transition-all group">
-                    <div class="h-48 bg-gray-900 flex items-center justify-center relative overflow-hidden">
-                        <div class="absolute inset-0 bg-cyber-green/5 group-hover:bg-cyber-green/10 transition-colors"></div>
-                        <i class="fas fa-network-wired text-6xl text-gray-700 group-hover:text-cyber-green transition-colors"></i>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-center mb-4">
-                            <h3 class="text-xl font-bold text-white">PacketSniffer.py</h3>
-                            <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-github text-xl"></i></a>
-                        </div>
-                        <p class="text-gray-400 text-sm mb-4">A lightweight, custom packet sniffer built with Python and Scapy. Captures HTTP headers and detects potential cleartext credential leaks on local networks.</p>
-                        <ul class="flex flex-wrap gap-2 text-xs font-mono text-cyber-green">
-                            <li>Python</li>
-                            <li>Scapy</li>
-                            <li>TCP/IP</li>
-                        </ul>
+
+                <div class="bg-gray-900/50 p-6 rounded-xl border border-gray-800 hover:border-red-500 transition-all hover:-translate-y-2">
+                    <div class="text-red-500 text-4xl mb-4"><i class="fas fa-network-wired"></i></div>
+                    <h3 class="text-xl font-bold text-white mb-4">Incident Response</h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="px-3 py-1 bg-red-500/10 text-red-400 rounded-full text-xs font-mono border border-red-500/20">Threat Hunting</span>
+                        <span class="px-3 py-1 bg-red-500/10 text-red-400 rounded-full text-xs font-mono border border-red-500/20">Forensics</span>
+                        <span class="px-3 py-1 bg-red-500/10 text-red-400 rounded-full text-xs font-mono border border-red-500/20">Wireshark</span>
+                        <span class="px-3 py-1 bg-red-500/10 text-red-400 rounded-full text-xs font-mono border border-red-500/20">TCPDump</span>
                     </div>
                 </div>
-
-                <!-- Project 2 -->
-                <div class="bg-[#111] rounded-lg overflow-hidden border border-gray-800 hover:border-blue-500 transition-all group">
-                    <div class="h-48 bg-gray-900 flex items-center justify-center relative overflow-hidden">
-                        <div class="absolute inset-0 bg-blue-500/5 group-hover:bg-blue-500/10 transition-colors"></div>
-                        <i class="fas fa-lock text-6xl text-gray-700 group-hover:text-blue-500 transition-colors"></i>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-center mb-4">
-                            <h3 class="text-xl font-bold text-white">VulnScanner v1</h3>
-                            <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-github text-xl"></i></a>
-                        </div>
-                        <p class="text-gray-400 text-sm mb-4">Automated vulnerability scanner integrating Nmap and Nikto. Generates HTML reports highlighting open ports and outdated service versions.</p>
-                        <ul class="flex flex-wrap gap-2 text-xs font-mono text-blue-400">
-                            <li>Bash</li>
-                            <li>Automation</li>
-                            <li>Reporting</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Project 3 -->
-                <div class="bg-[#111] rounded-lg overflow-hidden border border-gray-800 hover:border-purple-500 transition-all group">
-                    <div class="h-48 bg-gray-900 flex items-center justify-center relative overflow-hidden">
-                        <div class="absolute inset-0 bg-purple-500/5 group-hover:bg-purple-500/10 transition-colors"></div>
-                        <i class="fas fa-user-secret text-6xl text-gray-700 group-hover:text-purple-500 transition-colors"></i>
-                    </div>
-                    <div class="p-6">
-                        <div class="flex justify-between items-center mb-4">
-                            <h3 class="text-xl font-bold text-white">PhishGuard</h3>
-                            <a href="#" class="text-gray-400 hover:text-white"><i class="fab fa-github text-xl"></i></a>
-                        </div>
-                        <p class="text-gray-400 text-sm mb-4">Internal phishing simulation tool designed to train employees. Tracks click-rates and provides educational feedback pages.</p>
-                        <ul class="flex flex-wrap gap-2 text-xs font-mono text-purple-400">
-                            <li>Go</li>
-                            <li>HTML/CSS</li>
-                            <li>Social Engineering</li>
-                        </ul>
-                    </div>
-                </div>
-
             </div>
         </div>
     </section>
 
-    <!-- Contact Section -->
-    <section id="contact" class="py-20 bg-gradient-to-t from-black to-cyber-dark">
-        <div class="max-w-4xl mx-auto px-4 text-center">
-            <p class="text-cyber-green font-mono mb-4 text-sm">-- END OF LINE --</p>
-            <h2 class="text-4xl md:text-5xl font-bold text-white mb-6">Initialize Connection?</h2>
-            <p class="text-gray-400 mb-10 max-w-lg mx-auto">
-                Currently looking for new opportunities in Red Teaming and Cloud Security. Whether you have a question or just want to say hi, my inbox is always open.
-            </p>
-            
-            <a href="mailto:gopi@example.com" class="inline-block border border-cyber-green text-cyber-green font-bold py-4 px-10 rounded hover:bg-cyber-green/10 transition-colors">
-                Ping Me
-            </a>
 
-            <div class="mt-16 flex justify-center space-x-8">
-                <a href="#" class="text-gray-400 hover:text-white hover:scale-125 transition-transform"><i class="fab fa-github text-2xl"></i></a>
-                <a href="#" class="text-gray-400 hover:text-white hover:scale-125 transition-transform"><i class="fab fa-linkedin text-2xl"></i></a>
-                <a href="#" class="text-gray-400 hover:text-white hover:scale-125 transition-transform"><i class="fab fa-twitter text-2xl"></i></a>
-                <a href="#" class="text-gray-400 hover:text-white hover:scale-125 transition-transform"><i class="fab fa-discord text-2xl"></i></a>
+    <!-- Footer -->
+    <footer class="py-12 bg-black border-t border-gray-900">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <h2 class="text-2xl font-bold text-white mb-4 tracking-widest">GOPINATH MARIMUTHU</h2>
+            <p class="text-gray-500 font-mono text-sm mb-8">Dharmapuri, TN | +91 8883412921 | gopi661999@gmail.com</p>
+            <div class="flex justify-center space-x-6 mb-8">
+                <a href="https://www.linkedin.com/in/gopinath-marimuthu/" class="text-gray-400 hover:text-white transition-colors text-2xl"><i class="fab fa-linkedin"></i></a>
+                <a href="https://github.com/Gopi0606" class="text-gray-400 hover:text-white transition-colors text-2xl"><i class="fab fa-github"></i></a>
             </div>
-
-            <footer class="mt-20 text-gray-600 text-sm font-mono">
-                <p>Designed & Built by Gopi</p>
-                <p class="mt-2">System Status: <span class="text-green-500">Online</span></p>
-            </footer>
+            <p class="text-gray-700 text-[10px] font-mono uppercase tracking-[0.2em]">© 2026 Transmission Completed. All Rights Reserved.</p>
         </div>
-    </section>
+    </footer>
 
-    <!-- Scripts -->
+    <!-- Terminal Script -->
     <script>
-        // Terminal Typing Effect
         document.addEventListener('DOMContentLoaded', () => {
             const terminalContent = document.getElementById('terminal-content');
             const lines = [
-                { text: 'Loading system core...', style: 'text-gray-500' },
-                { text: 'Mounting file system...', style: 'text-gray-500' },
-                { text: 'Establishing secure connection...', style: 'text-gray-500' },
-                { text: 'Access Granted.', style: 'text-green-500 font-bold mb-4' },
-                { text: 'root@kali:~/portfolio# whoami', style: 'text-white' },
-                { text: '>> Gopi', style: 'text-cyber-green font-bold' },
-                { text: 'root@kali:~/portfolio# cat roles.txt', style: 'text-white mt-2' },
-                { text: '>> Pentester', style: 'text-gray-300' },
-                { text: '>> Security Analyst', style: 'text-gray-300' },
-                { text: '>> CTF Player', style: 'text-gray-300 mb-4' },
-                { text: 'root@kali:~/portfolio# ./init_portfolio.sh', style: 'text-white' },
-                { text: 'Executing...', style: 'text-blue-400' }
+                { text: 'Booting security_module...', style: 'text-gray-500' },
+                { text: 'Authentication successful.', style: 'text-cyber-green' },
+                { text: 'visitor@gopinath-m:~$ cat profile.md', style: 'text-white mt-2' },
+                { text: '> Name: Gopinath', style: 'text-gray-400' },
+                { text: '> Status: Active @ Quadrasystems.net', style: 'text-cyber-blue font-bold' },
+                { text: '> Role: Cybersecurity Engineer', style: 'text-gray-400' },
+                { text: '> Skills: Network Defense, End user Security', style: 'text-gray-400' },
+                { text: 'visitor@gopinath-m:~$ ./check_certs.sh', style: 'text-white mt-2' },
+                { text: '[SUCCESS] Imarticus Learning Verified', style: 'text-cyber-green' },
+                { text: '[PENDING] CEH Certification (EC-Council)', style: 'text-yellow-500' }
             ];
 
             let lineIndex = 0;
-            let charIndex = 0;
-            let currentLineDiv = null;
-
             function typeLine() {
                 if (lineIndex < lines.length) {
-                    if (!currentLineDiv) {
-                        currentLineDiv = document.createElement('div');
-                        currentLineDiv.className = `mb-1 ${lines[lineIndex].style || 'text-gray-300'}`;
-                        terminalContent.appendChild(currentLineDiv);
-                    }
-
-                    const fullText = lines[lineIndex].text;
-                    
-                    // Instant type for system messages, typed effect for user commands
-                    if(fullText.startsWith('root@')) {
-                        if (charIndex < fullText.length) {
-                            currentLineDiv.textContent += fullText.charAt(charIndex);
-                            charIndex++;
-                            setTimeout(typeLine, 50 + Math.random() * 50); // Random typing speed
-                        } else {
-                            lineIndex++;
-                            charIndex = 0;
-                            currentLineDiv = null;
-                            setTimeout(typeLine, 300); // Pause after line
-                        }
-                    } else {
-                        // Instant rendering for output
-                        currentLineDiv.textContent = fullText;
-                        lineIndex++;
-                        charIndex = 0;
-                        currentLineDiv = null;
-                        setTimeout(typeLine, 100);
-                    }
-                    
-                    // Auto scroll to bottom
+                    const lineDiv = document.createElement('div');
+                    lineDiv.className = `mb-1 ${lines[lineIndex].style || ''}`;
+                    lineDiv.textContent = lines[lineIndex].text;
+                    terminalContent.appendChild(lineDiv);
+                    lineIndex++;
                     const terminalBody = document.getElementById('terminal-body');
                     terminalBody.scrollTop = terminalBody.scrollHeight;
+                    setTimeout(typeLine, lines[lineIndex-1].text.includes('root') ? 600 : 250);
                 }
             }
-
-            // Start typing after a short delay
             setTimeout(typeLine, 500);
-        });
-
-        // Smooth Scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
         });
     </script>
 </body>
-
 </html>
