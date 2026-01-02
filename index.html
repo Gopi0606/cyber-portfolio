@@ -7,13 +7,10 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css" />
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- FontAwesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;700&family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
 
     <script>
         tailwind.config = {
@@ -50,93 +47,101 @@
 
     <style>
         body {
-            background-color: #050505;
+            background-color: #020202;
             color: #e5e7eb;
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
         }
+        
+        /* Fixed Background Canvas for full-page coverage */
+        #bg-canvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+            pointer-events: none;
+            display: block;
+            background: radial-gradient(circle at center, rgba(10, 10, 10, 0) 0%, rgba(0, 0, 0, 0.8) 100%);
+        }
+
         ::-webkit-scrollbar { width: 8px; }
-        ::-webkit-scrollbar-track { background: #111; }
-        ::-webkit-scrollbar-thumb { background: #333; border-radius: 4px; }
+        ::-webkit-scrollbar-track { background: #050505; }
+        ::-webkit-scrollbar-thumb { background: #1a1a1a; border-radius: 4px; }
         ::-webkit-scrollbar-thumb:hover { background: #00ff41; }
 
         .glitch-text:hover { text-shadow: 2px 0 #ef4444, -2px 0 #0ea5e9; }
+        
+        .profile-container {
+            position: relative;
+            width: 180px;
+            height: 180px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .profile-circle {
+            width: 160px;
+            height: 160px;
+            border-radius: 50%;
+            overflow: hidden;
+            border: 2px solid #00ff41;
+            position: relative;
+            z-index: 10;
+            background: #0a0a0a;
+        }
+
+        .profile-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .radar-ring {
+            position: absolute;
+            width: 180px;
+            height: 180px;
+            border-radius: 50%;
+            border: 1px solid rgba(0, 255, 65, 0.2);
+            border-top: 3px solid #00ff41;
+            animation: radar-rotate 4s linear infinite;
+        }
+
+        @keyframes radar-rotate {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
         .crt::before {
             content: " "; display: block; position: absolute; top: 0; left: 0; bottom: 0; right: 0;
-            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.15) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
             z-index: 2; background-size: 100% 2px, 3px 100%; pointer-events: none;
         }
-        /* Circular Profile Styles */
-               .profile-container {
-                position: relative;
-                width: 180px;
-                height: 180px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-               }
 
-               .profile-circle {
-               width: 160px;
-               height: 160px;
-               border-radius: 50%;
-               overflow: hidden;
-               border: 2px solid #00ff41;
-               position: relative;
-               z-index: 10;
-               background: #0a0a0a;
-               }
-
-               .profile-img {
-               width: 100%;
-               height: 100%;
-               object-fit: cover;
-               }
-
-                /* The rotating radar ring */
-               .radar-ring {
-                position: absolute;
-                width: 180px;
-                height: 180px;
-                border-radius: 50%;
-                border: 1px solid rgba(0, 255, 65, 0.2);
-                border-top: 3px solid #00ff41; /* The "visible" rotating part */
-                animation: radar-rotate 4s linear infinite;
-                }
-
-                @keyframes radar-rotate {
-                from { transform: rotate(0deg); }
-                to { transform: rotate(360deg); }
-                }
-
-               .crt::before {
-               content: " "; display: block; position: absolute; top: 0; left: 0; bottom: 0; right: 0;
-               background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
-               z-index: 2; background-size: 100% 2px, 3px 100%; pointer-events: none;
-               }
-               /* Hero Background - Note: Local C:/ paths often fail in browsers for security. 
-               Try moving the image to the same folder as this HTML and using url('1762271701251_1.jpg') */
-            .hero-bg-image {
+        section {
             position: relative;
-            background-color: #050505;
-            background-image: linear-gradient(to bottom, rgba(5, 5, 5, 0.7), rgba(5, 5, 5, 0.9)), 
-                              url('file:///C:\Users\GopinathM\Downloads\Image (1).jpg');
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
+            z-index: 10;
         }
-             
 
-
+        .text-glow {
+            text-shadow: 0 0 15px rgba(0, 255, 65, 0.4);
+        }
     </style>
 </head>
 <body class="font-sans antialiased overflow-x-hidden relative">
 
+    <canvas id="bg-canvas"></canvas>
+
     <!-- Navigation -->
-    <nav class="fixed w-full z-50 bg-cyber-dark/90 backdrop-blur-md border-b border-gray-800">
+    <nav class="fixed w-full z-50 bg-cyber-dark/80 backdrop-blur-lg border-b border-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
                 <div class="flex-shrink-0">
                     <span class="font-mono text-xl font-bold text-cyber-green tracking-tighter uppercase">
-                        GOPINATH_M
+                        BlackCipher
                     </span>
                 </div>
                 <div class="hidden md:block">
@@ -145,7 +150,7 @@
                         <a href="#about" class="text-gray-300 hover:text-cyber-green px-3 py-2 text-sm font-medium transition-colors">./Profile</a>
                         <a href="#experience" class="text-gray-300 hover:text-cyber-green px-3 py-2 text-sm font-medium transition-colors">./Experience</a>
                         <a href="#skills" class="text-gray-300 hover:text-cyber-green px-3 py-2 text-sm font-medium transition-colors">./Arsenal</a>
-                        <a href="mailto:gopi661999@gmail.com" class="bg-cyber-green/10 text-cyber-green border border-cyber-green/50 hover:bg-cyber-green hover:text-black px-4 py-2 rounded-md text-sm font-bold transition-all duration-300">Ping_Contact</a>
+                        <a href="mailto:gopi661999@gmail.com" class="bg-cyber-green/20 text-cyber-green border border-cyber-green/50 hover:bg-cyber-green hover:text-black px-4 py-2 rounded-md text-sm font-bold transition-all duration-300">Ping_Contact</a>
                     </div>
                 </div>
             </div>
@@ -154,54 +159,52 @@
 
     <!-- Hero Section -->
     <section id="home" class="min-h-screen flex items-center justify-center pt-16 relative overflow-hidden">
-        <div class="absolute inset-0 bg-[linear-gradient(to_right,#1f2937_1px,transparent_1px),linear-gradient(to_bottom,#1f2937_1px,transparent_1px)] bg-[size:4rem_4rem] [mask-image:radial-gradient(ellipse_60%_50%_at_50%_0%,#000_70%,transparent_100%)] opacity-20"></div>
-
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center relative z-10">
             <div class="order-2 lg:order-1">
-                <div class="inline-flex items-center px-3 py-1 rounded-full border border-cyber-green/30 bg-cyber-green/5 text-cyber-green text-xs font-mono mb-6">
+                <div class="inline-flex items-center px-3 py-1 rounded-full border border-cyber-green/40 bg-cyber-green/10 text-cyber-green text-xs font-mono mb-6 backdrop-blur-sm">
                     <span class="w-2 h-2 rounded-full bg-cyber-green animate-pulse mr-2"></span>
                     Currently at Quadrasystems.net
                 </div>
-                <!-- Circular Profile Component -->
+                
                 <div class="flex flex-col md:flex-row items-center gap-8 mb-10">
-                  <div class="profile-container">
-    <!-- Spinning radar ring -->
-    <div class="radar-ring animate-spin-slow"></div>
-    
-    <!-- Circular image wrapper -->
-    <div class="profile-circle shadow-[0_0_30px_rgba(0,255,65,0.2)]">
-        <img 
-            src="1762271701251_1.jpg" 
-            alt="Gopinath Marimuthu" 
-            class="profile-img"
-            onerror="this.src='https://via.placeholder.com/400x400/0a0a0a/00ff41?text=GM'"
-        >
-    </div>
-</div>
+                    <div class="profile-container">
+                        <div class="radar-ring"></div>
+                        <div class="profile-circle shadow-[0_0_40px_rgba(0,255,65,0.3)]">
+                            <img 
+                                src="C:\Users\GopinathM\Documents\1762271701251_1.jpg" 
+                                alt="Gopinath Marimuthu" 
+                                class="profile-img"
+                                onerror="this.src='https://via.placeholder.com/400x400/0a0a0a/00ff41?text=GM'"
+                            >
+                        </div>
+                    </div>
                     <div class="text-center md:text-left">
-                        <h1 class="text-5xl md:text-7xl font-black tracking-tighter leading-none">
+                        <h1 class="text-5xl md:text-7xl font-black tracking-tighter leading-none text-glow">
                             GOPINATH<br>
-                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyber-green via-cyber-blue to-cyber-green glitch-text uppercase">MARIMUTHU</span>
+                            <span class="text-transparent bg-clip-text bg-gradient-to-r from-cyber-green via-white to-cyber-green glitch-text uppercase">MARIMUTHU</span>
                         </h1>
-                        <p class="font-mono text-gray-500 text-xs mt-4 tracking-[0.2em] uppercase">Cyber Security Engineer </p>
+                        <p class="font-mono text-cyber-green/80 text-xs mt-4 tracking-[0.2em] uppercase font-bold">Cyber Security Engineer </p>
                     </div>
                 </div>
-                <p class="text-gray-400 text-lg mb-8 max-w-lg leading-relaxed font-mono">
+                <p class="text-gray-300 text-lg mb-8 max-w-lg leading-relaxed font-mono bg-black/40 p-4 rounded-lg backdrop-blur-md border border-white/5">
                     Cybersecurity professional specializing in network security, End User Security and vulnerability assessment. Protecting digital assets through advanced defensive methodologies.
                 </p>
                 <div class="flex flex-wrap gap-4">
-                    <a href="#experience" class="bg-cyber-green text-black font-bold py-3 px-8 rounded hover:shadow-[0_0_20px_rgba(0,255,65,0.4)] transition-all">
-                        View Logs
+                    <a href="https://drive.google.com/file/d/1v1GDTB6QKhfa9XpubTZ52coD9lM1e0Pg/view?usp=sharing" class="bg-cyber-green text-black font-bold py-3 px-8 rounded shadow-[0_0_20px_rgba(0,255,65,0.4)] hover:shadow-[0_0_35px_rgba(0,255,65,0.6)] transition-all">
+                        Resume
                     </a>
-                    <a href="https://www.linkedin.com/in/gopinath-marimuthu/" target="_blank" class="border border-gray-600 hover:border-white text-gray-300 hover:text-white py-3 px-8 rounded transition-all flex items-center gap-2">
+                    <a href="https://www.linkedin.com/in/gopinath-marimuthu/" target="_blank" class="bg-black/40 border border-gray-600 backdrop-blur-md hover:border-white text-gray-300 hover:text-white py-3 px-8 rounded transition-all flex items-center gap-2">
                         <i class="fab fa-linkedin"></i> LinkedIn
+                    </a>
+                    <a href="https://https://github.com/Gopi0606" target="_blank" class="bg-black/40 border border-gray-600 backdrop-blur-md hover:border-white text-gray-300 hover:text-white py-3 px-8 rounded transition-all flex items-center gap-2">
+                        <i class="fab fa-github"></i> Github
                     </a>
                 </div>
             </div>
 
             <div class="order-1 lg:order-2">
-                <div class="w-full max-w-lg mx-auto bg-[#0c0c0c] rounded-lg border border-gray-700 shadow-2xl overflow-hidden crt relative">
-                    <div class="bg-gray-800 px-4 py-2 flex items-center justify-between border-b border-gray-700">
+                <div class="w-full max-w-lg mx-auto bg-[#0c0c0c]/90 backdrop-blur-md rounded-lg border border-gray-700 shadow-2xl overflow-hidden crt relative">
+                    <div class="bg-gray-800/80 px-4 py-2 flex items-center justify-between border-b border-gray-700">
                         <div class="flex space-x-2"><div class="w-3 h-3 rounded-full bg-red-500"></div><div class="w-3 h-3 rounded-full bg-yellow-500"></div><div class="w-3 h-3 rounded-full bg-green-500"></div></div>
                         <div class="text-xs text-gray-400 font-mono italic">visitor@gopinath-m:~$</div>
                     </div>
@@ -209,7 +212,7 @@
                         <div id="terminal-content"></div>
                         <div class="flex items-center mt-2">
                             <span class="text-cyber-green mr-2">➜</span>
-                            <span class="animate-blink bg-gray-400 w-2 h-5 inline-block align-middle"></span>
+                            <span class="animate-blink bg-cyber-green w-2 h-5 inline-block align-middle"></span>
                         </div>
                     </div>
                 </div>
@@ -218,45 +221,34 @@
     </section>
 
     <!-- Profile Summary -->
-    <section id="about" class="py-24 relative">
+    <section id="about" class="py-32 relative">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
-                <div>
+                <div class="bg-black/40 p-8 rounded-2xl border border-gray-800/50 backdrop-blur-xl shadow-2xl">
                     <h2 class="text-3xl font-bold mb-8 flex items-center">
-                        <span class="text-cyber-green mr-3">01.</span> Professional_Summary
+                        <span class="text-cyber-green mr-3 font-mono"></span> Professional Summary
                     </h2>
-                    <p class="text-gray-400 leading-relaxed mb-6">
+                    <p class="text-gray-300 leading-relaxed mb-6">
                         Cybersecurity graduate with hands-on experience in network security, End User Security and vulnerability assessment. Skilled in identifying and mitigating security risks with strong attention to detail.
                     </p>
-                    <p class="text-gray-400 leading-relaxed mb-6">
-                        Currently leveraging my expertise at <span class="text-cyber-green">Quadrasystems.net</span> to strengthen organizational security posture through proactive monitoring and defensive engineering.
+                    <p class="text-gray-300 leading-relaxed mb-6">
+                        Currently leveraging my expertise at <span class="text-cyber-green font-bold">Quadrasystems.net</span> to strengthen organizational security posture through proactive monitoring and defensive engineering.
                     </p>
                      <div class="mt-8">
                         <h3 class="text-xl font-bold text-white mb-4">Core Philosophy</h3>
-                        <div class="border-l-2 border-cyber-green/30 pl-4">
-                            <p class="text-gray-500 italic">"Security is not a product, but a continuous process of visibility, analysis, and rapid response."</p>
+                        <div class="border-l-2 border-cyber-green pl-4 bg-cyber-green/5 py-3">
+                            <p class="text-gray-400 italic font-mono text-sm">"Security is not a product, but a continuous process of visibility, analysis, and rapid response."</p>
                         </div>
-                    </div>
-                    
-                     <div class="mt-8 space-y-4">
-                        <div class="bg-cyber-dark border border-gray-800 p-4 rounded flex items-center gap-4">
-                            <i class="fas fa-graduation-cap text-cyber-green"></i>
-                            <div>
-                                <h4 class="text-white font-bold text-sm">B.E. Civil Engineering</h4>
-                                <p class="text-xs text-gray-500">Mahendra Institute of Engineering & Tech (7.8 CGPA)</p>
-                            </div>
-                        </div>
-
                     </div>
                 </div>
 
-                <div>
-                    <h2 class="text-3xl font-bold mb-8 flex items-center md:justify-Center">
+                <div class="space-y-6">
+                    <h2 class="text-3xl font-bold mb-8 flex items-center md:justify-center">
                     Certifications
                     </h2>
-                    <div class="space-y-4">
-                        <div class="bg-gray-800/50 border border-gray-700 p-4 rounded-lg flex items-center hover:border-cyber-green transition-colors group cursor-default">
-                            <div class="w-12 h-12 bg-gray-900 rounded flex items-center justify-center text-2xl text-cyber-green mr-4 group-hover:scale-110 transition-transform">
+                    <div class="grid gap-4">
+                        <div class="bg-gray-900/60 backdrop-blur-xl border border-gray-700 p-5 rounded-xl flex items-center hover:border-cyber-green transition-all group cursor-default shadow-lg">
+                            <div class="w-12 h-12 bg-gray-900 rounded-lg flex items-center justify-center text-2xl text-cyber-green mr-4 group-hover:scale-110 transition-transform shadow-[0_0_15px_rgba(0,255,65,0.2)]">
                                 <i class="fas fa-search"></i>
                             </div>
                             <div>
@@ -264,9 +256,8 @@
                                 <p class="text-xs text-gray-400">Imarticus learning </p>
                             </div>
                         </div>
-
-                        <div class="bg-gray-800/50 border border-gray-700 p-4 rounded-lg flex items-center hover:border-cyber-blue transition-colors group cursor-default">
-                            <div class="w-12 h-12 bg-gray-900 rounded flex items-center justify-center text-2xl text-blue-500 mr-4 group-hover:scale-110 transition-transform">
+                        <div class="bg-gray-900/60 backdrop-blur-xl border border-gray-700 p-5 rounded-xl flex items-center hover:border-cyber-blue transition-all group cursor-default shadow-lg">
+                            <div class="w-12 h-12 bg-gray-900 rounded-lg flex items-center justify-center text-2xl text-blue-500 mr-4 group-hover:scale-110 transition-transform shadow-[0_0_15px_rgba(14,165,233,0.2)]">
                                 <i class="fas fa-shield-alt"></i>
                             </div>
                             <div>
@@ -274,9 +265,8 @@
                                 <p class="text-xs text-gray-400">EC-Council</p>
                             </div>
                         </div>
-
-                        <div class="bg-gray-800/50 border border-gray-700 p-4 rounded-lg flex items-center hover:border-purple-500 transition-colors group cursor-default">
-                            <div class="w-12 h-12 bg-gray-900 rounded flex items-center justify-center text-2xl text-purple-500 mr-4 group-hover:scale-110 transition-transform">
+                        <div class="bg-gray-900/60 backdrop-blur-xl border border-gray-700 p-5 rounded-xl flex items-center hover:border-purple-500 transition-all group cursor-default shadow-lg">
+                            <div class="w-12 h-12 bg-gray-900 rounded-lg flex items-center justify-center text-2xl text-purple-500 mr-4 group-hover:scale-110 transition-transform shadow-[0_0_15px_rgba(168,85,247,0.2)]">
                                 <i class="fas fa-cloud"></i>
                             </div>
                             <div>
@@ -291,42 +281,49 @@
     </section>
 
     <!-- Experience -->
-    <section id="experience" class="py-24 bg-cyber-dark border-y border-gray-800">
+    <section id="experience" class="py-32 relative">
         <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-3xl font-bold mb-16 flex items-center">
-                <span class="text-cyber-green mr-3">02.</span> Professional_History
+                <span class="text-cyber-green mr-3 font-mono"></span> Professional History
             </h2>
-
             <div class="space-y-12">
-                <!-- Quadrasystems -->
-                <div class="relative pl-8 border-l-2 border-cyber-green">
-                    <div class="absolute -left-[11px] top-0 w-5 h-5 rounded-full bg-cyber-green border-4 border-black"></div>
-                    <div class="mb-2 flex flex-wrap justify-between items-center">
-                        <h3 class="text-xl font-bold text-white">Cyber Security Associate</h3>
-                        <span class="text-cyber-green font-mono text-xs">OCT 2025 - PRESENT</span>
+                <div class="relative pl-10 border-l-2 border-cyber-green/30">
+                    <div class="absolute -left-[11px] top-0 w-5 h-5 rounded-full bg-cyber-green border-4 border-black shadow-[0_0_20px_rgba(0,255,65,0.6)] animate-pulse"></div>
+                    <div class="mb-4 bg-white/5 p-6 rounded-xl border border-white/5 backdrop-blur-md hover:border-cyber-green/50 transition-all">
+                        <div class="mb-2 flex flex-wrap justify-between items-center gap-4">
+                            <h3 class="text-xl font-bold text-white">Cyber Security Engineer</h3>
+                            <span class="bg-cyber-green/20 text-cyber-green px-3 py-1 rounded-full font-mono text-xs border border-cyber-green/30">OCT 2025 - PRESENT</span>
+                        </div>
+                        <p class="text-cyber-blue font-bold mb-4 text-sm tracking-widest uppercase">Quadrasystems.net</p>
+                        <p class="text-gray-300 text-sm leading-relaxed italic mb-4">
+                            Contributing to enterprise-level security monitoring and vulnerability management systems.
+                        </p>
+                        <ul class="text-gray-400 text-sm space-y-3 font-mono">
+                            <li class="flex items-start gap-2"><span class="text-cyber-green">>></span> Threat analysis and real-time network monitoring.</li>
+                            <li class="flex items-start gap-2"><span class="text-cyber-green">>></span> Supporting incident response and remediation efforts.</li>
+                        </ul>
                     </div>
-                    <p class="text-cyber-blue font-bold mb-4 text-sm">Quadrasystems.net</p>
-                    <p class="text-gray-400 text-sm leading-relaxed italic mb-4">
-                        Contributing to enterprise-level security monitoring and vulnerability management systems. (Last 3 months)
-                    </p>
-                    <ul class="text-gray-500 text-sm space-y-2">
-                        <li>• Threat analysis and real-time network monitoring.</li>
-                        <li>• Supporting incident response and remediation efforts.</li>
-                    </ul>
+                </div>
+                
+                <div class="relative pl-10 border-l-2 border-gray-800">
+                    <div class="absolute -left-[11px] top-0 w-5 h-5 rounded-full bg-gray-800 border-4 border-black shadow-[0_0_20px_rgba(0,255,65,0.6)] animate-pulse"></div>
+                    <div class="mb-4 bg-white/5 p-6 rounded-xl border border-white/5 backdrop-blur-md hover:border-cyber-green/50 transition-all">
+                        <div class="mb-2 flex flex-wrap justify-between items-center gap-4">
+                            <h3 class="text-xl font-bold text-white">CRM</h3>
+                            <span class="text-gray-500 font-mono text-xs">MAY 2022 - JAN 2025</span>
+                        </div>
+                        <p class="text-cyber-blue font-bold mb-4 text-sm tracking-widest uppercase">Reliance Digital</p>
+                        <p class="text-gray-300 text-sm leading-relaxed italic mb-4">
+                            Contributing to CRM systems by managing customer data, supporting sales pipelines, and improving customer engagement workflows.
+                        </p>
+                        <ul class="text-gray-400 text-sm space-y-3 font-mono">
+                            <li class="flex items-start gap-2"><span class="text-cyber-green">>></span> Managed customer relationship processes using SAP CRM. Proficient in data handling, service requests, and workflow automation.</li>
+                           
+                        </ul>
+                    </div>
                 </div>
 
-                <!-- Reliance -->
-                <div class="relative pl-8 border-l-2 border-gray-800">
-                    <div class="absolute -left-[11px] top-0 w-5 h-5 rounded-full bg-gray-800 border-4 border-black"></div>
-                    <div class="mb-2 flex flex-wrap justify-between items-center">
-                        <h3 class="text-xl font-bold text-white">CRM </h3>
-                        <span class="text-gray-500 font-mono text-xs">MAY 2022 - JAN 2025</span>
-                    </div>
-                    <p class="text-gray-500 font-bold mb-4 text-sm uppercase">Reliance Digital</p>
-                    <p class="text-gray-400 text-sm leading-relaxed">
-                        Managed customer relationship processes using SAP CRM. Proficient in data handling, service requests, and workflow automation. Collaborated cross-functionally to improve system efficiency.
-                    </p>
-                </div>
+                
             </div>
         </div>
     </section>
@@ -335,7 +332,7 @@
     <section id="skills" class="py-20">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <h2 class="text-3xl font-bold mb-12 flex items-center justify-center">
-                <span class="text-cyber-green mr-3">03.</span> Technical_Arsenal
+                <span class="text-cyber-green mr-3"></span> Technical Arsenal
             </h2>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -377,12 +374,68 @@
         </div>
     </section>
 
+    <!-- Technical Projects -->
+    <section id="projects" class="py-32 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold mb-16 flex items-center">
+                <span class="text-cyber-green mr-3 font-mono"></span> Projects
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Project 1 -->
+                <div class="project-card p-8 rounded-xl backdrop-blur-md">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="p-3 bg-cyber-green/10 rounded-lg text-cyber-green text-2xl">
+                            <i class="fas fa-network-wired"></i>
+                        </div>
+                        <span class="text-xs font-mono text-gray-500 uppercase tracking-widest">Enterprise Infrastructure</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4">Enterprise Network Design for Multi-Department Organization</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        Designed and implemented a secure and scalable network infrastructure for a simulated organization. The architecture focused on department-level isolation and secure inter-departmental communication.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="px-2 py-1 bg-white/5 border border-white/10 rounded text-[10px] font-mono text-cyber-green">VLAN Isolation</span>
+                        <span class="px-2 py-1 bg-white/5 border border-white/10 rounded text-[10px] font-mono text-cyber-green">Subnetting</span>
+                        <span class="px-2 py-1 bg-white/5 border border-white/10 rounded text-[10px] font-mono text-cyber-green">Scalable Architecture</span>
+                    </div>
+                    <ul class="space-y-2 text-xs font-mono text-gray-300">
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-cyber-green"></i> 4 Departments: HR, Finance, IT, and Sales</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-cyber-green"></i> Implemented Secure Routing & Firewalling</li>
+                    </ul>
+                </div>
 
-    <!-- Footer -->
+                <!-- Project 2 -->
+                <div class="project-card p-8 rounded-xl backdrop-blur-md">
+                    <div class="flex items-center justify-between mb-6">
+                        <div class="p-3 bg-cyber-blue/10 rounded-lg text-cyber-blue text-2xl">
+                            <i class="fas fa-terminal"></i>
+                        </div>
+                        <span class="text-xs font-mono text-gray-500 uppercase tracking-widest">Cryptographic Analysis</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-4">Automated Cryptanalysis & Password Cracking Tools</h3>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                        Developed and utilized automated scripts for evaluating password strength, performing cryptanalysis, and testing hash resilience against common attack vectors.
+                    </p>
+                    <div class="flex flex-wrap gap-2 mb-6">
+                        <span class="px-2 py-1 bg-white/5 border border-white/10 rounded text-[10px] font-mono text-cyber-blue">Python Scripting</span>
+                        <span class="px-2 py-1 bg-white/5 border border-white/10 rounded text-[10px] font-mono text-cyber-blue">Hash Cracking</span>
+                        <span class="px-2 py-1 bg-white/5 border border-white/10 rounded text-[10px] font-mono text-cyber-blue">Automation</span>
+                    </div>
+                    <ul class="space-y-2 text-xs font-mono text-gray-300">
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-cyber-blue"></i> Automated Hash Identification</li>
+                        <li class="flex items-center gap-2"><i class="fas fa-check text-cyber-blue"></i> Strength Assessment Algorithms</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+     <!-- Footer -->
     <footer class="py-12 bg-black border-t border-gray-900">
         <div class="max-w-7xl mx-auto px-4 text-center">
             <h2 class="text-2xl font-bold text-white mb-4 tracking-widest">GOPINATH MARIMUTHU</h2>
-            <p class="text-gray-500 font-mono text-sm mb-8">Dharmapuri, TN | +91 8883412921 | gopi661999@gmail.com</p>
+            <p class="text-gray-500 font-mono text-sm mb-8">Dharmapuri, TN | gopi661999@gmail.com</p>
             <div class="flex justify-center space-x-6 mb-8">
                 <a href="https://www.linkedin.com/in/gopinath-marimuthu/" class="text-gray-400 hover:text-white transition-colors text-2xl"><i class="fab fa-linkedin"></i></a>
                 <a href="https://github.com/Gopi0606" class="text-gray-400 hover:text-white transition-colors text-2xl"><i class="fab fa-github"></i></a>
@@ -391,9 +444,124 @@
         </div>
     </footer>
 
-    <!-- Terminal Script -->
+    <!-- Scripts -->
     <script>
+        // --- HIGH VISIBILITY FULL-PAGE PARTICLE LOGIC ---
+        const canvas = document.getElementById('bg-canvas');
+        const ctx = canvas.getContext('2d');
+        let particles = [];
+        const mouse = { x: null, y: null, radius: 250 };
+
+        window.addEventListener('mousemove', (e) => {
+            mouse.x = e.clientX;
+            mouse.y = e.clientY;
+        });
+
+        window.addEventListener('resize', initParticles);
+
+        function initParticles() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            particles = [];
+            
+            // Increased density to ensure it fills the screen and feels "rich"
+            const numberOfParticles = (canvas.width * canvas.height) / 6000;
+            for (let i = 0; i < numberOfParticles; i++) {
+                particles.push(new Particle());
+            }
+        }
+
+        class Particle {
+            constructor() {
+                this.x = Math.random() * canvas.width;
+                this.y = Math.random() * canvas.height;
+                // Variable sizes for depth
+                this.size = Math.random() * 2.5 + 0.8;
+                // Faster default movement
+                this.speedX = Math.random() * 1.2 - 0.6;
+                this.speedY = Math.random() * 1.2 - 0.6;
+                this.color = '#00ff41';
+                this.baseOpacity = Math.random() * 0.5 + 0.3;
+            }
+            update() {
+                this.x += this.speedX;
+                this.y += this.speedY;
+                
+                // Screen wrap-around
+                if (this.x > canvas.width) this.x = 0;
+                else if (this.x < 0) this.x = canvas.width;
+                if (this.y > canvas.height) this.y = 0;
+                else if (this.y < 0) this.y = canvas.height;
+
+                // Mouse repel logic
+                if (mouse.x !== null) {
+                    let dx = mouse.x - this.x;
+                    let dy = mouse.y - this.y;
+                    let distance = Math.sqrt(dx * dx + dy * dy);
+                    if (distance < mouse.radius) {
+                        const force = (mouse.radius - distance) / mouse.radius;
+                        const moveX = (dx / distance) * force * 4;
+                        const moveY = (dy / distance) * force * 4;
+                        this.x -= moveX;
+                        this.y -= moveY;
+                    }
+                }
+            }
+            draw() {
+                ctx.fillStyle = this.color;
+                ctx.globalAlpha = this.baseOpacity;
+                
+                // Add node glow
+                ctx.shadowBlur = 8;
+                ctx.shadowColor = this.color;
+
+                ctx.beginPath();
+                ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+                ctx.fill();
+                
+                // Reset shadows for performance on connections
+                ctx.shadowBlur = 0;
+                ctx.globalAlpha = 1;
+            }
+        }
+
+        function connect() {
+            // Strong visible network lines
+            for (let a = 0; a < particles.length; a++) {
+                for (let b = a; b < particles.length; b++) {
+                    let dx = particles[a].x - particles[b].x;
+                    let dy = particles[a].y - particles[b].y;
+                    let distance = Math.sqrt(dx * dx + dy * dy);
+                    
+                    if (distance < 160) {
+                        let opacity = 1 - (distance / 160);
+                        // Much higher opacity for the "visible top to bottom" request
+                        ctx.strokeStyle = `rgba(0, 255, 65, ${opacity * 0.45})`;
+                        ctx.lineWidth = 1.2;
+                        ctx.beginPath();
+                        ctx.moveTo(particles[a].x, particles[a].y);
+                        ctx.lineTo(particles[b].x, particles[b].y);
+                        ctx.stroke();
+                    }
+                }
+            }
+        }
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            for (let i = 0; i < particles.length; i++) {
+                particles[i].update();
+                particles[i].draw();
+            }
+            connect();
+            requestAnimationFrame(animate);
+        }
+
+        // --- TERMINAL LOGIC ---
         document.addEventListener('DOMContentLoaded', () => {
+            initParticles();
+            animate();
+
             const terminalContent = document.getElementById('terminal-content');
             const lines = [
                 { text: 'Booting security_module...', style: 'text-gray-500' },
@@ -421,9 +589,8 @@
                     setTimeout(typeLine, lines[lineIndex-1].text.includes('root') ? 600 : 250);
                 }
             }
-            setTimeout(typeLine, 500);
+            setTimeout(typeLine, 800);
         });
     </script>
 </body>
 </html>
-
